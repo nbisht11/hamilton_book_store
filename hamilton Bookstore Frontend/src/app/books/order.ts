@@ -4,5 +4,6 @@ export interface Order {
     customerName: string;
     contact: string;
     adress: string;
+    orderStatus: string;
   }
   
