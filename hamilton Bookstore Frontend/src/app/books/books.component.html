@@ -1,0 +1,40 @@
+<div class='card'>
+    <div class='card-header'>
+      {{pageTitle}}
+    </div>
+    <div class='card-body'>
+      <div class='table-responsive'>
+        <table class='table'
+               *ngIf='books.length'>
+          <thead>
+            <tr>
+              <th>  </th>
+              <th>Book</th>
+              <th>ISBN</th>
+              <th>Published</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let book of books'>
+              <td>
+                <img [src]='book.imageUrl'
+                     [title]='book.bookName'
+                     [style.width.px]='imageWidth'
+                     [style.margin.px]='imageMargin'>
+              </td>
+              <td>
+                <a [routerLink]="['/books', book.bookId]">
+                  {{ book.bookName }}
+                </a>
+              </td>
+              <td>{{ book.ISBN | lowercase }}</td>
+              <td>{{ book.publishDate }}</td>
+              <td>{{ book.price | currency:'USD':'symbol':'1.2-2'}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+  </div>
